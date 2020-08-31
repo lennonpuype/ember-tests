@@ -1,0 +1,11 @@
+{{#unless this.changeTodo}}
+<LinkTo @route="todo" @model={{@index}}>
+  <p>{{@todo}}</p>
+</LinkTo>
+
+<a href="#" {{on 'click' (fn this.pressChange)}} style="margin-left: 20px">Change</a>
+<a href="#" {{on 'click' (fn this.pressDelete @index)}} style="margin-left: 10px">Delete</a>
+{{else}}
+<input type="text" value={{@todo}} oninput={{this.inputTodo}}>
+<a href="#" {{on 'click' (fn this.pressSave @index)}}>Save</a>
+{{/unless}}

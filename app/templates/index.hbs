@@ -1,0 +1,14 @@
+<h1>Todo's</h1>
+
+<input type="text" oninput={{action this.changeTodoInput}} value={{this.inputField}} />
+<button type="button" {{on 'click' (fn this.addTodo)}}>Add todo</button>
+<ul>
+  {{#each this.todos as |todo index|}}
+  {{log index}}
+  <li>
+    <div style="display: flex; align-items: center;">
+      <Todo @index={{index}} @todo={{todo}} />
+    </div>
+  </li>
+  {{/each}}
+</ul>
